@@ -9,6 +9,35 @@ This folder contains a structural rewrite of the original multi-agent LLM script
 
 The original files remain untouched in the project root.
 
+## Paper
+
+This codebase is a refactored implementation of:
+
+**An Adversary-Resistant Multi-Agent LLM System via Credibility Scoring**  
+Sana Ebrahimi, Mohsen Dehghankar, Abolfazl Asudeh (IJCNLP-AACL 2025)
+
+- Anthology page: `https://aclanthology.org/2025.ijcnlp-long.90/`
+- PDF: `https://aclanthology.org/2025.ijcnlp-long.90.pdf`
+
+## Implementation mapping to paper
+
+- Team formation and communication topology:
+  - dynamic/random links and chain topology in `ma_llm/pipelines.py`
+- CrS-aware aggregation (credibility-weighted coordination):
+  - aggregation and coordinator prompts in `ma_llm/pipelines.py`
+- Contribution score (CSc):
+  - LLM-as-Judge contribution estimation in `ma_llm/scoring.py`
+  - optional embedding/Shapley-style disconnected path in `ma_llm/embedding_pipeline.py`
+- Credibility score updates:
+  - iterative CrS update step in `ma_llm/scoring.py` (`update_weights`)
+- Multi-task evaluation setup (MMLU, MATH/GSM8K, HumanEval, QA):
+  - dataset readers in `ma_llm/data_io.py`
+  - task runners in top-level scripts under `refactored/`
+
+The refactor keeps the paper’s core iterative structure:
+- query -> agent responses -> coordinator output -> reward
+- contribution attribution -> credibility update -> next query
+
 ## What changed
 
 - Shared logic moved into a package: `refactored/ma_llm/`.
@@ -71,3 +100,19 @@ From `refactored/docs/`:
 
 The generated HTML is in `refactored/docs/_build/html/`.
 The docs use the `pydata-sphinx-theme` with structured pages for overview, architecture, workflows, operations, and full module API reference.
+
+## Citation
+
+```bibtex
+@inproceedings{ebrahimi-etal-2025-adversary,
+    title = "An Adversary-Resistant Multi-Agent {LLM} System via Credibility Scoring",
+    author = "Ebrahimi, Sana and Dehghankar, Mohsen and Asudeh, Abolfazl",
+    booktitle = "Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics",
+    month = dec,
+    year = "2025",
+    address = "Mumbai, India",
+    publisher = "The Asian Federation of Natural Language Processing and The Association for Computational Linguistics",
+    pages = "1676--1693",
+    url = "https://aclanthology.org/2025.ijcnlp-long.90/",
+}
+```
