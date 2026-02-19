@@ -1,0 +1,25 @@
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environments
+.miniconda/
+.venv/
+venv/
+
+# Docs build artifacts
+docs/_build/
+
+# Local run artifacts
+*.log
+mmlu_results_*.json
+run_mmlu_*.json
+
+# Optional local data folder
+# data/

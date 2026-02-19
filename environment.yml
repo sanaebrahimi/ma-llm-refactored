@@ -1,0 +1,18 @@
+name: ma-llm-refactored
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - sphinx
+  - pip:
+      - openai
+      - ollama
+      - llmlingua
+      - tiktoken
+      - pydata-sphinx-theme
+      - sphinx-copybutton
+      - sphinx-design

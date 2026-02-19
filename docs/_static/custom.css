@@ -1,0 +1,27 @@
+:root {
+  --pst-color-primary: #0d3b66;
+  --pst-color-secondary: #2a9d8f;
+  --pst-color-link: #0d3b66;
+  --pst-color-link-hover: #2a9d8f;
+}
+
+.bd-header {
+  border-bottom: 1px solid rgba(13, 59, 102, 0.15);
+}
+
+.bd-main .bd-content {
+  max-width: 920px;
+}
+
+h1, h2, h3 {
+  letter-spacing: 0.01em;
+}
+
+.admonition, div.admonition {
+  border-radius: 10px;
+}
+
+.sd-card {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
