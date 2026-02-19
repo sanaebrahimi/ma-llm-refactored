@@ -2,7 +2,7 @@
 
 This folder contains a structural rewrite of the original multi-agent LLM scripts while preserving the same workflow style:
 
-- multiple agents answer a task,
+- multiple agents answer a task, share their responses, and refine or change their answers if they want to,
 - a coordinator aggregates responses,
 - a judge scores the final answer,
 - agent contribution updates credibility weights.
